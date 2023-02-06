@@ -9,20 +9,20 @@
 namespace lifesim {
 
 FeaturePoint::FeaturePoint(std::unique_ptr<std::vector<StockPoint>> stockpoints, StockKey stock_key,
-            std::shared_ptr<std::vector<double>> weights) :
+            std::vector<double> weights) :
         stockpoints_(std::move(stockpoints)),
         stock_key_(stock_key){
     // Calculate moving average delta
-    features_.push_back(Feature(GetMovingAveragePriceDelta(), FeatureType::MOVING_AVERAGE_PRICE_DELTA, weights->at(0)));
+    features_.push_back(Feature(GetMovingAveragePriceDelta(), FeatureType::MOVING_AVERAGE_PRICE_DELTA, weights.at(0)));
     
     // Calculate price momentum
-    features_.push_back(Feature(GetPriceMomentum(), FeatureType::PRICE_MOMENTUM, weights->at(1)));
+    features_.push_back(Feature(GetPriceMomentum(), FeatureType::PRICE_MOMENTUM, weights.at(1)));
 
     // Get volume
-    features_.push_back(Feature(GetMovingAverageVolumeDelta(), FeatureType::MOVING_AVERAGE_VOLUME_DELTA, weights->at(2)));
+    features_.push_back(Feature(GetMovingAverageVolumeDelta(), FeatureType::MOVING_AVERAGE_VOLUME_DELTA, weights.at(2)));
     
     // Calculate volume momentum
-    features_.push_back(Feature(GetVolumeMomentum(), FeatureType::VOLUME_MOMENTUM, weights->at(3)));
+    features_.push_back(Feature(GetVolumeMomentum(), FeatureType::VOLUME_MOMENTUM, weights.at(3)));
 }
 
 std::ostream& operator<< (std::ostream& stream, const FeaturePoint& featurepoint) {

@@ -2,7 +2,7 @@
 
 namespace lifesim {
 
-Feature::Feature(double value, FeatureType type, int64_t weight) : value_(value), type_(type), weight_(weight) {}
+Feature::Feature(double value, FeatureType type, double weight) : value_(value), type_(type), weight_(weight) {}
 
 std::ostream& operator<< (std::ostream& stream, const Feature& feature) {
     stream << "Feature(value=" << feature.value_ <<

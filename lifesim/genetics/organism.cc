@@ -45,7 +45,7 @@ void Organism::Create() {
         feature_points_.push_back(FeaturePoint(
             std::make_unique<std::vector<StockPoint>>(
                 SliceVector<StockPoint>(stockpoints, i - kHistoricalPointsNeeded, kHistoricalPointsNeeded)),
-                stock_key_, dna_strands_->at(i-kHistoricalPointsNeeded).GetNucleotides()));
+                stock_key_, dna_strands_->at(i-kHistoricalPointsNeeded).GetNucleotideValues()));
     }
 }
 

@@ -28,7 +28,7 @@ class FeaturePoint {
         whose timestamp matches this feature point.
         */
         FeaturePoint(std::unique_ptr<std::vector<StockPoint>> stockpoints, StockKey stock_key,
-            std::shared_ptr<std::vector<double>> weights);
+            std::vector<double> weights);
         std::vector<double> GetValuesFromStockKey(const std::vector<StockPoint>& stockpoints) const;
         double GetMovingAveragePriceDelta() const;
         double GetMovingAverageVolumeDelta() const;

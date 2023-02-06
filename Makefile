@@ -5,7 +5,7 @@ all: compile
 ENTRYPOINT	=	"main"
 
 CC				=	g++ -std=c++20
-CCFLAGS			= 	-g -Wall
+CCFLAGS			= 	-g -Wall -O0
 CURLFLAGS		= 	-lcurl
 INCLUDEFLAGS	=   -I$(shell pwd)
 

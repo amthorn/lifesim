@@ -16,14 +16,14 @@ enum FeatureType {
 
 class Feature {
     public:
-        Feature(double value, FeatureType type, int64_t weight);
+        Feature(double value, FeatureType type, double weight);
 
         friend std::ostream& operator<< (std::ostream& stream, const Feature& feature);
     
     private:
         double value_;
         FeatureType type_;
-        int64_t weight_;
+        double weight_;
 };
 
 }
