@@ -39,8 +39,11 @@ void LogWrapper(const char* file, int line, int level, std::string msg){
             level_str = FATAL_TAG;
             break;
         case DEBUG:
-        default:
             level_str = DEBUG_TAG;
+            break;
+        case TRACE:
+        default:
+            level_str = TRACE_TAG;
             break;
     }
     PRINTFUNCTION(LOG_FMT, level_str, GetTime().c_str(), file, line, (msg + NEWLINE).c_str());

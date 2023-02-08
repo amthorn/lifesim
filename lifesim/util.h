@@ -13,3 +13,18 @@ std::vector<T> SliceVector(std::vector<T> vec, int64_t start, int64_t length) {
 }
 
 }
+
+namespace std {
+
+template <typename T>
+struct hash<std::vector<T>> {
+    size_t operator()(const std::vector<T> &values) const {
+        size_t result = values.size();
+        for (const auto &v : values) {
+            result ^= v.GetId();
+        }
+        return result;
+    }
+};
+
+}

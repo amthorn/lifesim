@@ -11,6 +11,7 @@ namespace lifesim {
 #define WARNING     0x02
 #define INFO        0x03
 #define DEBUG       0x04
+#define TRACE       0x05
 
 #define LOG_FMT                "[%s][%s][%s:%d]: %s"
 
@@ -21,11 +22,12 @@ namespace lifesim {
 #define WARNING_TAG "WARNING"
 #define INFO_TAG    "INFO"
 #define DEBUG_TAG   "DEBUG"
+#define TRACE_TAG   "TRACE"
 
 #define PRINTFUNCTION(format, ...)      printf(format, __VA_ARGS__)
 
 #ifndef LOG_LEVEL
-#define LOG_LEVEL   DEBUG
+#define LOG_LEVEL   TRACE
 #endif
 
 #define LOG(level, msg)   lifesim::LogWrapper(__FILE__, __LINE__, level, msg)

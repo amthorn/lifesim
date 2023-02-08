@@ -17,6 +17,11 @@ enum FeatureType {
 class Feature {
     public:
         Feature(double value, FeatureType type, double weight);
+        Feature(const Feature& f);
+
+        std::size_t GetId() const;
+        double GetValue() const;
+        double GetWeight() const;
 
         friend std::ostream& operator<< (std::ostream& stream, const Feature& feature);
     

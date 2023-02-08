@@ -24,7 +24,9 @@ class StockPoint {
         volume: the volume of stocks traded during the period
         */
         StockPoint(std::string name, int64_t timestamp, double open, double close, double high, double low, int64_t volume);
+        StockPoint(const StockPoint& s);
 
+        std::size_t GetId() const;
         std::string GetName() const;
         int64_t GetTimestamp() const;
         double GetOpen() const;

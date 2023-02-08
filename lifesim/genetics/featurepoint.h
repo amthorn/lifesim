@@ -29,6 +29,9 @@ class FeaturePoint {
         */
         FeaturePoint(std::unique_ptr<std::vector<StockPoint>> stockpoints, StockKey stock_key,
             std::vector<double> weights);
+        FeaturePoint(const FeaturePoint& f);
+
+        std::size_t GetId() const;
         std::vector<double> GetValuesFromStockKey(const std::vector<StockPoint>& stockpoints) const;
         double GetMovingAveragePriceDelta() const;
         double GetMovingAverageVolumeDelta() const;
@@ -37,6 +40,9 @@ class FeaturePoint {
         double GetPriceMomentum() const;
         double GetVolumeMomentum() const;
         std::pair<double, double> GetBestFitLine(const std::vector<double>& y_values) const;
+        double GetPrediction() const;
+        double GetValueFromStockKey(StockPoint s) const;
+        double GetValue() const;
 
         friend std::ostream& operator<< (std::ostream& stream, const FeaturePoint& featurepoint);
     
@@ -44,7 +50,7 @@ class FeaturePoint {
         std::unique_ptr<std::vector<StockPoint>> stockpoints_;
         // This value tells the featurepoint which key it should use to evaluate the value of the stockpoint
         StockKey stock_key_;
-        std::vector<Feature> features_;
+        std::unique_ptr<std::vector<Feature>> features_;
         Dna dna_;
 };
 

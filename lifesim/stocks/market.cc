@@ -21,7 +21,7 @@ std::vector<T> Market::GetDataPoints(nlohmann::json raw, std::string key) {
     return values;
 }
 
-Stock Market::GetStock(std::string name) {
+std::unique_ptr<Stock> Market::GetStock(std::string name) {
     std::string full_url = kStockUrl + name + "?range=" + kRange + "&interval=" + kInterval;
     LOG(DEBUG, "Getting stock from URL: " + full_url);
 
@@ -41,7 +41,7 @@ Stock Market::GetStock(std::string name) {
         stock_points.push_back(StockPoint(name, timestamps[i], opens[i], closes[i], highs[i], lows[i], volumes[i]));
     }
 
-    return Stock(name, stock_points);
+    return std::make_unique<Stock>(name, stock_points);
 }
 
 }

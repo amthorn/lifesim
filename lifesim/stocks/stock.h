@@ -11,6 +11,7 @@ namespace lifesim {
 class Stock {
     public:
         Stock(std::string name, std::vector<StockPoint> stockpoints);
+        std::size_t GetId() const;
         std::string GetName() const;
         std::vector<StockPoint> GetStockpoints() const;
         

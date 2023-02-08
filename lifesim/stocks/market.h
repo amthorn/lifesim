@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -14,7 +15,7 @@ class Market {
     public:
         Market();
 
-        Stock GetStock(std::string name);
+        std::unique_ptr<Stock> GetStock(std::string name);
 
     template <typename T> std::vector<T> GetDataPoints(nlohmann::json raw, std::string key);
     
