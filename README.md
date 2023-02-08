@@ -219,10 +219,12 @@ Here is example output for GOOG stock over 100 generations with no genetic drift
 [INFO][4:29:23][lifesim/genetics/evolution.cc:25]: Evolution Complete.
 [INFO][4:29:23][lifesim/genetics/evolution.cc:26]: Percentage Correct: 76.642336%
 [INFO][4:29:23][lifesim/genetics/evolution.cc:27]: Longest Segment: 15/147
-[INFO][4:29:23][lifesim/genetics/evolution.cc:28]: Prediction: 227694.027408
+[INFO][4:29:23][lifesim/genetics/evolution.cc:28]: Prediction: 227694.027408 (stock will go up)
 ```
 
 Observe from the above simulation that each generation does improve on the predictive capability of the model.
 However, it can never reach 100% as each prediction is only based on historical trends.
 
 Confidence intervals are only to be interpretted within that context.
+
+Each generation takes about 1/3 of a second.

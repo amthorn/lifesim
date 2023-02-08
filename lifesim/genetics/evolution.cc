@@ -22,10 +22,11 @@ Evolution::Evolution(std::shared_ptr<Stock> stock, StockKey stock_key) : stock_(
     }
 
     int32_t stockpoint_size = stock->GetStockpoints().size();
+    int64_t prediction = fittest->at(0).GetPrediction();
     LOG(INFO, "Evolution Complete.");
     LOG(INFO, "Percentage Correct: " + std::to_string(fittest->at(0).GetFitnessValues().first * 100) + "%");
     LOG(INFO, "Longest Segment: " + std::to_string(fittest->at(0).GetFitnessValues().second) + "/" + std::to_string(stockpoint_size - 1));
-    LOG(INFO, "Prediction: " + std::to_string(fittest->at(0).GetPrediction()));
+    LOG(INFO, "Prediction: " + std::to_string(prediction) + (prediction > 0 ? " (stock will go up)" : " (stock will go down)"));
 }
 
 }
